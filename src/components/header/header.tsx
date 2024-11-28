@@ -8,15 +8,11 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
+
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
+
 import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
-import log from "@/images/log.jpg";
-import { duration } from "@mui/material";
-import { Loop } from "@mui/icons-material";
 
 const pages = ["Home", "About", "Portfolio", "Contacts"];
 
@@ -34,7 +30,7 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <motion.div
+    <motion.header
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
@@ -110,6 +106,7 @@ function ResponsiveAppBar() {
                 alignItems: "center",
                 gap: 5,
                 fontFamily: "GeistMono",
+                marginRight: 3,
               }}
             >
               <Typography
@@ -133,14 +130,14 @@ function ResponsiveAppBar() {
                 <Avatar
                   alt="Remy Sharp"
                   src="/chip.jpeg"
-                  sx={{ height: 55, width: 55 }}
+                  sx={{ height: 45, width: 45 }}
                 />
               </motion.div>
             </Box>
           </Toolbar>
         </Box>
       </AppBar>
-    </motion.div>
+    </motion.header>
   );
 }
 export default ResponsiveAppBar;
