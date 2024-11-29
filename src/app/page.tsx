@@ -12,7 +12,7 @@ export default function Home() {
       <section className="w-full h-auto">
         <Protfolio></Protfolio>
       </section>
-      <footer>
+      <footer className="w-full h-auto">
         <Contacts></Contacts>
       </footer>
     </main>

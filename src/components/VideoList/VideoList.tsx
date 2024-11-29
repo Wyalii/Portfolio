@@ -61,10 +61,13 @@ export function VideoList() {
               {p.videoUrl === "Video Coming Soon..." ? (
                 <div className="flex justify-center items-center">
                   <p>{p.videoUrl}</p>
-                  <img
+                  <Image
                     src="/corrupted video file.png"
                     className="h-[60px] w-[60px]"
-                  ></img>
+                    alt="Corrupted File"
+                    width={60} // Specify the width of the image
+                    height={60}
+                  ></Image>
                 </div>
               ) : (
                 <video
@@ -83,11 +86,13 @@ export function VideoList() {
                 title={`GitHub Repository: ${p.git}`}
               >
                 <p>Github: </p>
-                <img
-                  src="gitlogo.webp"
+                <Image
+                  src="/gitlogo.webp"
                   className="h-[40px] w-[40px] rounded-full"
                   alt="Github Logo"
-                ></img>
+                  width={40}
+                  height={40}
+                ></Image>
               </a>
               <a
                 href={p.websiteUrl}
