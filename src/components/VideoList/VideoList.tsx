@@ -12,13 +12,13 @@ export function VideoList() {
       name: "Chat-App",
       git: "https://github.com/Wyalii/chat-app",
       videoUrl: "/ChatApp.mp4",
-      websiteUrl: "Not Deployed.",
+      websiteUrl: "Project is Not Deployed.",
     },
 
     {
       id: 2,
       name: "TaskManagementApp",
-      git: "https://github.com/Wyalii/chat-app",
+      git: "https://github.com/Wyalii/TaskManagementApp",
       videoUrl: "Video Coming Soon...",
       websiteUrl: "Website Coming Soon...",
     },
@@ -57,13 +57,46 @@ export function VideoList() {
       <Slider {...settings}>
         {projects.map((p) => (
           <div key={p.id} className="flex items-center justify-center">
-            <div className="w-full sm:w-[400px] h-[400px] bg-purple-600 rounded text-white flex flex-col justify-center items-center text-xl text-center font-bold">
-              <video controls className="w-full object-fill">
-                <source src={p.videoUrl} type="video/mp4"></source>
-              </video>
-              <h1>{p.name}</h1>
-              <a>{p.git}</a>
-              <a>{p.websiteUrl}</a>
+            <div className="w-full sm:w-[400px] h-[400px] bg-purple-600 rounded text-white flex flex-col justify-start items-center text-xl font-bold text-center">
+              {p.videoUrl === "Video Coming Soon..." ? (
+                <div className="flex justify-center items-center">
+                  <p>{p.videoUrl}</p>
+                  <img
+                    src="/corrupted video file.png"
+                    className="h-[60px] w-[60px]"
+                  ></img>
+                </div>
+              ) : (
+                <video
+                  controls
+                  className="w-full h-auto"
+                  style={{ margin: 0, padding: 0 }}
+                >
+                  <source src={p.videoUrl} type="video/mp4"></source>
+                </video>
+              )}
+              <h1>Project: {p.name}</h1>
+              <a
+                href={p.git}
+                target="_blank"
+                className="flex gap-2 items-center justify-center"
+                title={`GitHub Repository: ${p.git}`}
+              >
+                <p>Github: </p>
+                <img
+                  src="gitlogo.webp"
+                  className="h-[40px] w-[40px] rounded-full"
+                  alt="Github Logo"
+                ></img>
+              </a>
+              <a
+                href={p.websiteUrl}
+                target="_blank"
+                className="flex flex-col items-center justify-center"
+              >
+                <p>WebsiteUrl:</p>
+                <p className="text-sm md:text-lg">{p.websiteUrl}</p>
+              </a>
             </div>
           </div>
         ))}
