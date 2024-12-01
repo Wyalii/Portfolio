@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export function MySocial() {
   return (
-    <div className="flex flex-col text-white gap-2 bg-purple-600 p-3 rounded w-[500px]">
+    <div className="flex flex-col text-white gap-2 bg-purple-600 p-3 rounded w-full md:w-[500px] items-center h-[240px]">
       <h1 className="lg:text-lg font-GeistMono">My Email:</h1>
       <p className="font-GeistMono">gigaurigiorgi2727@gmail.com</p>
       <a
