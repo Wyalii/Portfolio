@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 
 import "./globals.css";
+// Import order matters!
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import "@/app/globals.css";
 
 export const metadata: Metadata = {
   title: "Create Next App",
