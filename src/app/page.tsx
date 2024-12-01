@@ -5,7 +5,7 @@ import Contacts from "@/components/contacts/Contacts";
 export default function Home() {
   return (
     <main className="w-full h-auto flex flex-col items-center gap-28">
-      <section className=" w-auto h-[1000px] bg-[url('/bg1.jpg')] bg-cover">
+      <section className=" w-auto">
         <Header></Header>
         <About></About>
       </section>
