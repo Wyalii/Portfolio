@@ -23,8 +23,9 @@ export default function About() {
         </figure>
         <article className="flex flex-col gap-3 justify-center items-center text-blue-600 font-bold">
           <header className="flex items-center justify-center font-GeistMono text-center text-2xl lg:text-5xl typing-effect">
-            <div className="flex gap-6 font-bold flex items-center justify-center">
-              <p className="text-white">Im</p> <p>Giorgi Gigauri</p>
+            <div className="flex gap-6 font-bold items-center justify-center">
+              <p className="text-white">Im</p>{" "}
+              <p className="text-white">Giorgi Gigauri</p>
             </div>
           </header>
           <header className=" font-GeistMono text-center text-2xl lg:text-4xl typing-effect">
