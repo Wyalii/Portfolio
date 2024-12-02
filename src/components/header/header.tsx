@@ -36,7 +36,10 @@ function ResponsiveAppBar() {
       transition={{ duration: 1 }}
       style={{ width: "100vw" }} // Ensures full width
     >
-      <AppBar position="static" sx={{ bgcolor: "black", marginBottom: 10 }}>
+      <AppBar
+        position="static"
+        sx={{ backgroundColor: "transparent", marginBottom: 10 }}
+      >
         <Box sx={{ width: "100%" }}>
           <Toolbar disableGutters>
             <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -114,10 +117,15 @@ function ResponsiveAppBar() {
                 sx={{
                   color: "white",
                   fontFamily: "GeistMono",
+                  bgcolor: "blue",
+                  borderRadius: 4,
+                  padding: "5px",
+                  cursor: "pointer",
+                  fontSize: "1rem",
                 }}
                 className="typing-effect font-GeistMono"
               >
-                Giorgi Gigauri
+                Contact Me
               </Typography>
               <motion.div
                 animate={{ y: [-5, 0, -5] }}

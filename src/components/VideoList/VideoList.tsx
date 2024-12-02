@@ -56,19 +56,17 @@ export function VideoList() {
     <div className="w-full sm:w-[500px] lg:w-full max-w-5xl h-auto p-6 sm:p-12">
       <Slider {...settings}>
         {projects.map((p) => (
-          <div key={p.id} className="flex items-center justify-center">
-            <div className="w-full sm:w-[400px] h-[400px] bg-purple-600 rounded text-white flex flex-col justify-start items-center text-xl font-bold text-center">
+          <div key={p.id} className="flex">
+            <div className="w-full sm:w-[400px] h-[400px] bg-blue-600 rounded text-white flex flex-col  text-xl text-left font-GeistMono">
               {p.videoUrl === "Video Coming Soon..." ? (
-                <div className="flex justify-center items-center">
-                  <p>{p.videoUrl}</p>
-                  <Image
-                    src="/corrupted video file.png"
-                    className="h-[60px] w-[60px]"
-                    alt="Corrupted File"
-                    width={60} // Specify the width of the image
-                    height={60}
-                  ></Image>
-                </div>
+                <video
+                  controls
+                  className="w-full h-auto"
+                  style={{ margin: 0, padding: 0 }}
+                  poster="/videoerror.png"
+                >
+                  <source src={p.videoUrl} type="video/mp4"></source>
+                </video>
               ) : (
                 <video
                   controls
@@ -78,11 +76,11 @@ export function VideoList() {
                   <source src={p.videoUrl} type="video/mp4"></source>
                 </video>
               )}
-              <h1>Project: {p.name}</h1>
+              <h1 className="font-bold pl-3 ">Project: {p.name}</h1>
               <a
                 href={p.git}
                 target="_blank"
-                className="flex gap-2 items-center justify-center"
+                className="flex gap-2 justify-start items-center pl-3"
                 title={`GitHub Repository: ${p.git}`}
               >
                 <p>Github: </p>
@@ -97,7 +95,7 @@ export function VideoList() {
               <a
                 href={p.websiteUrl}
                 target="_blank"
-                className="flex flex-col items-center justify-center"
+                className="flex flex-col justify-start pl-3"
               >
                 <p>WebsiteUrl:</p>
                 <p className="text-sm md:text-lg">{p.websiteUrl}</p>
