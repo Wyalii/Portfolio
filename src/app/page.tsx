@@ -84,7 +84,7 @@ export default function Home() {
       </motion.section>
 
       <motion.section
-        className="w-full h-auto"
+        className="w-full h-auto mt-[190px]"
         ref={portfolioRef}
         initial={{ opacity: 0, x: -100 }}
         animate={portfolioControls}
@@ -93,7 +93,7 @@ export default function Home() {
         <Protfolio></Protfolio>
       </motion.section>
       <motion.footer
-        className="w-full h-auto"
+        className="w-full h-auto mt-[150px]"
         ref={footerRef}
         initial={{ opacity: 0, y: 50 }}
         animate={footerControls}

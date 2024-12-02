@@ -1,7 +1,7 @@
 import Image from "next/image";
 export function Description() {
   return (
-    <div className="flex items-center justify-center gap-20 mt-[300px]">
+    <div className="flex flex-col lg:flex-row items-center justify-center gap-20 mt-[300px]">
       <div className="flex flex-col text-white gap-2">
         <p className="font-GeistMono text-sm">
           i&#39;m a 17 years old Frontend developer, currently
@@ -25,7 +25,7 @@ export function Description() {
         height={400}
         width={400}
         alt="Looks picture"
-        className="rounded border-blue-600"
+        className="rounded border-[10px] border-blue-600 w-[350px] h-[350px] lg:w-[400px] lg:h-[400px] "
       ></Image>
     </div>
   );

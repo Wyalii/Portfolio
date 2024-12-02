@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function About() {
   return (
     <motion.section
-      className="w-full flex items-center justify-center h-[700px] gap-5 pt-7 bg-cover"
+      className="w-full flex items-center justify-center h-[700px] gap-5 pt-7 bg-cover mb-7"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
