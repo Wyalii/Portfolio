@@ -37,7 +37,7 @@ export default function Header() {
     }
   }
   return (
-    <header className="w-full bg-transparent h-[60px] fixed flex items-center justify-center gap-32 font-GeistMono text-white">
+    <header className="w-full bg-transparent h-[60px] flex items-center justify-center gap-32 font-GeistMono text-white">
       <section className="bg-black flex items-center justify-center gap-7 p-6 rounded">
         <button onClick={(e) => FormSwitch(e)} value="Home">
           About

@@ -1,11 +1,35 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useState, useEffect } from "react";
+import BackendSkillsForm from "../BackendSkills/BackendSkills";
+import FrontendSkillsForm from "../Frontend Skills/FrontendSkills";
 
 export default function About() {
+  const [frontEndForm, setFrontEndForm] = useState<boolean>(true);
+  const [backendEndForm, setBackendEndForm] = useState<boolean>();
+  const [buttonText, setButtonText] = useState<string>();
+
+  useEffect(() => {
+    if (frontEndForm === true) {
+      setButtonText("Backend Set");
+    } else {
+      setButtonText("Frontend Set");
+    }
+  }, [frontEndForm, backendEndForm]);
+
+  function HandleChangeForm() {
+    if (frontEndForm === true) {
+      setFrontEndForm(false);
+      setBackendEndForm(true);
+    } else {
+      setBackendEndForm(false);
+      setFrontEndForm(true);
+    }
+  }
   return (
     <motion.section
-      className="w-full flex items-center justify-center h-[700px] gap-5 pt-7 bg-cover mt-20"
+      className="w-full flex flex-col items-center justify-center h-[700px] gap-[200px] pt-7 bg-cover mt-[400px]"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
@@ -32,6 +56,20 @@ export default function About() {
             <p> a Frontend Developer.</p>
           </header>
         </article>
+      </div>
+
+      <div className="w-full h-auto flex flex-col items-center gap-36">
+        <h1 className="text-white text-4xl font-GeistMono font-bold ">
+          Skills
+        </h1>
+        <div>
+          {frontEndForm ? (
+            <FrontendSkillsForm></FrontendSkillsForm>
+          ) : (
+            <BackendSkillsForm></BackendSkillsForm>
+          )}
+        </div>
+        <button onClick={HandleChangeForm}>{buttonText}</button>
       </div>
     </motion.section>
   );
