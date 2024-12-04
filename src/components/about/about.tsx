@@ -5,10 +5,10 @@ import Image from "next/image";
 export default function About() {
   return (
     <motion.section
-      className="w-full flex items-center justify-center h-[700px] gap-5 pt-7 bg-cover mb-7"
+      className="w-full flex items-center justify-center h-[700px] gap-5 pt-7 bg-cover mt-20"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 1 }}
+      transition={{ duration: 0.5 }}
     >
       <div className="flex flex-col md:flex-row justify-center items-center gap-28">
         <figure className="bg-blue-600 rounded-full  p-2">
@@ -28,7 +28,7 @@ export default function About() {
               <p className="text-white">Giorgi Gigauri</p>
             </div>
           </header>
-          <header className=" font-GeistMono text-center text-2xl lg:text-4xl typing-effect">
+          <header className="font-GeistMono text-center text-2xl lg:text-4xl typing-effect">
             <p> a Frontend Developer.</p>
           </header>
         </article>
