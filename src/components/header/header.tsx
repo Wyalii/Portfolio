@@ -17,11 +17,11 @@ export default function Header() {
     if (buttons) {
       buttons.forEach((btn) => {
         const button = btn as HTMLButtonElement;
-        button.style.color = "white";
+        button.style.backgroundColor = "";
       });
     }
     const button = e.target as HTMLButtonElement;
-    button.style.color = "blue";
+    button.style.backgroundColor = "gray";
     if (button.value === "Home") {
       setProjectPage(false);
       setContactPage(false);
@@ -37,15 +37,27 @@ export default function Header() {
     }
   }
   return (
-    <header className="w-full bg-transparent h-[60px] flex items-center justify-center gap-32 font-GeistMono text-white">
-      <section className="bg-black flex items-center justify-center gap-7 p-6 rounded">
-        <button onClick={(e) => FormSwitch(e)} value="Home">
+    <header className="w-full bg-transparent h-[60px] flex items-center justify-center gap-32 font-GeistMono text-white mt-8">
+      <section className="bg-zinc-800 flex items-center justify-center gap-7 p-4 rounded">
+        <button
+          onClick={(e) => FormSwitch(e)}
+          value="Home"
+          className="p-2 rounded transition-colors duration-300 ease-in-out font-GeistMono"
+        >
           About
         </button>
-        <button onClick={(e) => FormSwitch(e)} value="Projects">
+        <button
+          onClick={(e) => FormSwitch(e)}
+          value="Projects"
+          className="p-2 rounded transition-colors duration-300 ease-in-out font-GeistMono"
+        >
           Projects
         </button>
-        <button onClick={(e) => FormSwitch(e)} value="Contact">
+        <button
+          onClick={(e) => FormSwitch(e)}
+          value="Contact"
+          className="p-2 rounded transition-colors duration-300 ease-in-out font-GeistMono"
+        >
           Contact
         </button>
       </section>

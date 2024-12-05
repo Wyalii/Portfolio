@@ -9,7 +9,7 @@ import { useFormContext } from "@/types/FormContextType";
 export default function Home() {
   const { aboutPage, projectPage, contactPage } = useFormContext();
   return (
-    <main className="w-full h-full flex flex-col items-start ">
+    <main className="w-full h-full flex flex-col items-center gap-16 ">
       <Header></Header>
       {aboutPage === false && projectPage === false && contactPage === false ? (
         <div className="mt-40 text-white text-5xl text-center w-full font-GeistMono flex flex-col items-center gap-9">

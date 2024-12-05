@@ -2,74 +2,68 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import BackendSkillsForm from "../BackendSkills/BackendSkills";
-import FrontendSkillsForm from "../Frontend Skills/FrontendSkills";
 
 export default function About() {
-  const [frontEndForm, setFrontEndForm] = useState<boolean>(true);
-  const [backendEndForm, setBackendEndForm] = useState<boolean>();
-  const [buttonText, setButtonText] = useState<string>();
-
-  useEffect(() => {
-    if (frontEndForm === true) {
-      setButtonText("Backend Set");
-    } else {
-      setButtonText("Frontend Set");
-    }
-  }, [frontEndForm, backendEndForm]);
-
-  function HandleChangeForm() {
-    if (frontEndForm === true) {
-      setFrontEndForm(false);
-      setBackendEndForm(true);
-    } else {
-      setBackendEndForm(false);
-      setFrontEndForm(true);
-    }
-  }
   return (
-    <motion.section
-      className="w-full flex flex-col items-center justify-center h-[700px] gap-[200px] pt-7 bg-cover mt-[400px]"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-    >
-      <div className="flex flex-col md:flex-row justify-center items-center gap-28">
-        <figure className="bg-blue-600 rounded-full  p-2">
+    <motion.section className="w-3/4 flex justify-center">
+      <div className="w-full max-w-[1000px] h-auto grid grid-cols-5 grid-rows-6 gap-5 justify-center">
+        <div className="bg-[#2A2A2A] w-auto rounded flex justify-center items-center gap-6 col-span-3 row-span-2 p-7">
           <Image
-            className="rounded-full h-[250px] w-[250px] lg:h-[400px] lg:w-[400px]"
             src="/looks.jpg"
-            alt="Giorgi Gigauri portrait"
-            width={250}
-            height={250}
-            sizes="(min-width: 1024px) 400px, 250px"
+            width={150}
+            height={150}
+            alt="looks Giorgi Gigauri"
+            className="rounded-full cursor-pointer"
           ></Image>
-        </figure>
-        <article className="flex flex-col gap-3 justify-center items-center text-blue-600 font-bold">
-          <header className="flex items-center justify-center font-GeistMono text-center text-2xl lg:text-5xl typing-effect">
-            <div className="flex gap-6 font-bold items-center justify-center">
-              <p className="text-white">Im</p>{" "}
-              <p className="text-white">Giorgi Gigauri</p>
-            </div>
-          </header>
-          <header className="font-GeistMono text-center text-2xl lg:text-4xl typing-effect">
-            <p> a Frontend Developer.</p>
-          </header>
-        </article>
-      </div>
 
-      <div className="w-full h-auto flex flex-col items-center gap-36">
-        <h1 className="text-white text-4xl font-GeistMono font-bold ">
-          Skills
-        </h1>
-        <div>
-          {frontEndForm ? (
-            <FrontendSkillsForm></FrontendSkillsForm>
-          ) : (
-            <BackendSkillsForm></BackendSkillsForm>
-          )}
+          <div className="felex flex-col ">
+            <h1 className="font-GeistMono">Im Giorgi Gigauri</h1>
+            <h2 className="font-GeistMono text-white">A Frontend Developer.</h2>
+          </div>
         </div>
-        <button onClick={HandleChangeForm}>{buttonText}</button>
+        <div className="bg-[#2A2A2A] rounded w-full h-auto row-span-6 col-start-4 col-span-2">
+          <h1 className="text-white font-GeistMono p-3">
+            Technologies i have used.
+          </h1>
+        </div>
+        <div className="p-3 bg-fuchsia-800 row-start-3 row-span-2 rounded w-full font-GeistMono text-sm gap-2 text-white flex flex-col xl:flex-row items-center justify-center">
+          <p>Located in Georgia,Tbilisi</p>
+          <Image
+            src="/georgia.png"
+            height={40}
+            width={40}
+            alt="Georgian Flag"
+          ></Image>
+        </div>
+        <a
+          className="bg-[#2A2A2A] col-start-2 row-span-2 col-span-1 flex flex-col items-center justify-center gap-4 cursor-pointer"
+          href="https://github.com/Wyalii"
+          target="_blank"
+        >
+          <Image
+            src="/github.png"
+            height={80}
+            width={80}
+            alt="Github Profile Image"
+            className="rounded-full"
+          ></Image>
+          <p className="text-white font-GeistMono">My Github</p>
+        </a>
+        <a
+          className="bg-[#2A2A2A] col-start-3 row-span-2 col-span-1 flex flex-col items-center justify-center gap-4 cursor-pointer"
+          href="https://www.linkedin.com/in/gigauri-giorgi27/"
+          target="_blank"
+        >
+          <Image
+            src="/linkedin.png"
+            height={80}
+            width={80}
+            alt="Github Profile Image"
+            className="rounded-full"
+          ></Image>
+          <p className="text-white font-GeistMono">My Linkedin</p>
+        </a>
+        <div className="bg-[#2A2A2A] col-span-3 row-span-2">my education</div>
       </div>
     </motion.section>
   );
