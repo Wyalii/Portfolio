@@ -3,7 +3,6 @@ import { Textarea } from "../ui/textarea";
 import { Button } from "../ui/button";
 import { useState } from "react";
 export function ContactMe() {
-  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
@@ -21,12 +20,6 @@ export function ContactMe() {
 
   return (
     <div className="w-3/4  md:w-[500px] bg-blue-600 rounded p-2 flex flex-col gap-6 items-center justify-center h-[350px]">
-      <Input
-        type="name"
-        placeholder="Your Name"
-        className="font-GeistMono"
-        onChange={(e) => setName(e.target.value)}
-      ></Input>
       <Input
         type="email"
         placeholder="your email"
