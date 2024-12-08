@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { FormProvider } from "@/types/FormContextType";
 import "./globals.css";
-import { createContext, useContext, useState, ReactNode } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "@/app/globals.css";

@@ -1,5 +1,3 @@
-import { resolveObjectURL } from "buffer";
-import { error } from "console";
 import { NextRequest, NextResponse } from "next/server";
 import validator from "validator";
 import nodemailer from "nodemailer";

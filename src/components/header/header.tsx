@@ -1,15 +1,6 @@
-import React, { useContext } from "react";
-import { useEffect } from "react";
 import { useFormContext } from "@/types/FormContextType";
 export default function Header() {
-  const {
-    setContactPage,
-    setProjectPage,
-    setAboutPage,
-    aboutPage,
-    projectPage,
-    contactPage,
-  } = useFormContext();
+  const { setContactPage, setProjectPage, setAboutPage } = useFormContext();
 
   function FormSwitch(e: React.MouseEvent<HTMLButtonElement>) {
     const buttons = e.currentTarget.parentElement?.querySelectorAll("button");

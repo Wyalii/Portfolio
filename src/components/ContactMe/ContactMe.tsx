@@ -15,7 +15,10 @@ export function ContactMe() {
         },
         body: JSON.stringify({ email, message }),
       });
-    } catch (error) {}
+      console.log(resposne);
+    } catch (error) {
+      console.log({ error });
+    }
   };
 
   return (
