@@ -7,9 +7,11 @@ import { toast } from "react-toastify";
 export function ContactMe() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const SendEmail = async () => {
     try {
+      setLoading(true);
       const request = await fetch("/api/SendMessage", {
         method: "POST",
         headers: {
@@ -21,11 +23,14 @@ export function ContactMe() {
       const response = await request.json();
       if (response.ok) {
         toast.success(response.message);
+        setLoading(false);
       } else {
         toast.error(response.message);
+        setLoading(false);
       }
     } catch (error) {
       console.log({ error });
+      setLoading(false);
     }
   };
 
@@ -49,6 +54,9 @@ export function ContactMe() {
       >
         Submit
       </Button>
+      {loading ? (
+        <div className="text-white text-3xl font-GeistMono">Sending...</div>
+      ) : null}
     </div>
   );
 }

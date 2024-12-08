@@ -2,6 +2,14 @@ import { NextRequest, NextResponse } from "next/server";
 import validator from "validator";
 import nodemailer from "nodemailer";
 import connectToDB from "@/lib/db";
+
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: process.env.MY_EMAIL,
+    pass: process.env.APP_PASSWORD,
+  },
+});
 export async function POST(req: NextRequest) {
   try {
     const db = await connectToDB();
@@ -16,7 +24,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    if (!message || message.length <= 8) {
+    if (message.length <= 8) {
       return NextResponse.json(
         {
           ok: false,
@@ -27,18 +35,14 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const lastMessage = await messagesCollection
-      .find({ email })
-      .sort({ createdAt: -1 })
-      .limit(1)
-      .toArray();
+    const lastMessage = await messagesCollection.findOne(
+      { email },
+      { sort: { createdAt: -1 } }
+    );
 
-    if (lastMessage.length > 0) {
-      const currentTime = new Date();
+    if (lastMessage) {
       const timeDifference =
-        (currentTime.getTime() - lastMessage[0].createdAt.getTime()) /
-        1000 /
-        60;
+        (Date.now() - lastMessage.createdAt.getTime()) / (1000 * 60);
 
       if (timeDifference < 30) {
         return NextResponse.json(
@@ -58,15 +62,7 @@ export async function POST(req: NextRequest) {
       createdAt: new Date(),
     };
 
-    await messagesCollection.insertOne(newMessage);
-
-    const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: process.env.MY_EMAIL,
-        pass: process.env.APP_PASSWORD,
-      },
-    });
+    const InsertMessage = messagesCollection.insertOne(newMessage);
 
     const mailOptions = {
       from: email,
@@ -75,7 +71,9 @@ export async function POST(req: NextRequest) {
       text: `you recived message from: ${email}:\n\n${message}`,
     };
 
-    await transporter.sendMail(mailOptions);
+    const SendMessageToMail = transporter.sendMail(mailOptions);
+
+    await Promise.all([InsertMessage, SendMessageToMail]);
     return NextResponse.json(
       { ok: true, message: "Your Message was sent :)" },
       { status: 200 }
